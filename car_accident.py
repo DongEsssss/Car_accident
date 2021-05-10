@@ -3,7 +3,7 @@ import requests
 def acci_car_info(count, data):
   Api_Key ='*서비스코드*'
   url = f'http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath?serviceKey=fNvxK%2FUyrQNf0idM7oR3xQuXiYlusJ32hafxCVzjKzrZEY48j4jdg5zoTPnsHrhgqQ5jmaHZVFELvdWUjdV4fA%3D%3D&searchYear=2019&siDo=1100&guGun=1117&type=json&numOfRows=10&pageNo=1'
-
+#요청한 http
   response = requests.get(url)
   print (response)
   return response
