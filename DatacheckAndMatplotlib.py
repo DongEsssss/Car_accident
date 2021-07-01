@@ -60,3 +60,23 @@ plt.title('연도별 교통사고의 수',fontsize=20)
 plt.xlabel("연도별",fontsize=15)
 plt.ylabel("사망교통사고 건 수",fontsize=15)
 plt.show()
+
+accident_df[['msday']]
+
+#데이터를 그룹화하기
+msday_data = accident_df.groupby(['msday']).count()
+msday= msday_data.iloc[0,0]
+msday_data
+
+accident_df['msday'].value_counts()
+
+# 요일이 섞여서 나와 따로 리스트를 만들어 표를 추출한 데이터를 시각화
+df = pd.DataFrame()
+plt.figure(figsize=(20,10))
+df['days'] = ['월','화','수','목','금','토','일']   # 요일
+df['num'] = [5033,4984,4837,4879,5123,5028,4261]    # 월부터 일까지의 사망교통사고 정보 데이터
+plt.bar(df['days'],df['num'], color='b', alpha=0.7) # x축에는 요일 y축에는 요일별 사망교통사고 정보 데이터를 넣었습니다.
+plt.title('요일별 사망교통사고 수',fontsize=20)    
+plt.xlabel("요일별",fontsize=15)
+plt.ylabel("사망교통사고 건 수",fontsize=15)
+plt.show()
