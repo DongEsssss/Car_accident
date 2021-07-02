@@ -8,3 +8,4 @@ DatacheckAndMatplotlib.py는 추출한 데이터를 통해 데이터가 잘 나�
 데이터를 시각화하였습니다.
 
 car_accident.py 현재 진행중
+2021-07-02(3번쨰)
