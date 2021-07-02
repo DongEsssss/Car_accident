@@ -80,3 +80,19 @@ plt.title('요일별 사망교통사고 수',fontsize=20)
 plt.xlabel("요일별",fontsize=15)
 plt.ylabel("사망교통사고 건 수",fontsize=15)
 plt.show()
+
+#4번째 사망교통사고 주야 비율
+
+#데이터를 그룹화하기
+dayandnight_data = accident_df.groupby(['dayandnight']).count()
+dayandnight= dayandnight_data.iloc[:,:]
+dayandnight_data
+
+accident_df['dayandnight'].value_counts()
+
+# dayandnight에 대한 데이터 그래프를 pie로 시각화
+plt.figure(figsize=(10,10))
+plt.title('사망교통사고 주야 비율' , fontsize=20)
+plt.ylabel('주야 시간대' , fontsize=15)
+accident_df['dayandnight'].value_counts().plot.pie(autopct = '%.2f%%' , colors = ['lightblue', 'orange'] ,  textprops = {'fontsize' : 12 , 'weight' : 'bold'})
+plt.show()
