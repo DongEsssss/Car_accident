@@ -101,3 +101,6 @@ plt.show()
 death_data = accident_df.groupby(['death']).count()
 death= death_data.iloc[:,0]
 death_data
+
+accident_df['death'].value_counts()
+#7하고 9가 없는데 이는 사망교통사고 한번에 7명,9명이 사망했다는 데이터가 없다는 것
