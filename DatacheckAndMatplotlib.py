@@ -104,3 +104,12 @@ death_data
 
 accident_df['death'].value_counts()
 #7하고 9가 없는데 이는 사망교통사고 한번에 7명,9명이 사망했다는 데이터가 없다는 것
+
+# death 데이터를 plot 그래프를 이용해 시각화
+plt.figure(figsize=(20,10))
+plt.plot(death.index, death, color='b',alpha=0.7, marker='o', markersize=15, linestyle='dashed')
+plt.title('한번의 사망교통사고로 인한 사망자의 수',fontsize=20)
+plt.xlabel("사망자 수",fontsize=15)
+plt.ylabel("사망교통사고 건 수",fontsize=15)
+plt.legend(["사망자"],fontsize=15)
+plt.show()
