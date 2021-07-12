@@ -96,3 +96,8 @@ plt.title('사망교통사고 주야 비율' , fontsize=20)
 plt.ylabel('주야 시간대' , fontsize=15)
 accident_df['dayandnight'].value_counts().plot.pie(autopct = '%.2f%%' , colors = ['lightblue', 'orange'] ,  textprops = {'fontsize' : 12 , 'weight' : 'bold'})
 plt.show()
+
+#데이터를 그룹화하기
+death_data = accident_df.groupby(['death']).count()
+death= death_data.iloc[:,0]
+death_data
