@@ -61,6 +61,8 @@ plt.xlabel("연도별",fontsize=15)
 plt.ylabel("사망교통사고 건 수",fontsize=15)
 plt.show()
 
+#두 번째 사망교통사고가 일어난 요일에 대한 데이터 추출하기
+
 accident_df[['msday']]
 
 #데이터를 그룹화하기
@@ -81,7 +83,7 @@ plt.xlabel("요일별",fontsize=15)
 plt.ylabel("사망교통사고 건 수",fontsize=15)
 plt.show()
 
-#4번째 사망교통사고 주야 비율
+#세 번째 사망교통사고가 일어난 시간대(주,야)에 대해 데이터를 추출하고 시각화하기
 
 #데이터를 그룹화하기
 dayandnight_data = accident_df.groupby(['dayandnight']).count()
@@ -96,6 +98,25 @@ plt.title('사망교통사고 주야 비율' , fontsize=20)
 plt.ylabel('주야 시간대' , fontsize=15)
 accident_df['dayandnight'].value_counts().plot.pie(autopct = '%.2f%%' , colors = ['lightblue', 'orange'] ,  textprops = {'fontsize' : 12 , 'weight' : 'bold'})
 plt.show()
+
+#네 번째 지역별 지금까지 일어난 사망교통사고 횟수
+
+#데이터를 그룹화하기
+map_data =accident_df.groupby(['map']).count()
+map =map_data.iloc[:,0]
+map_data
+
+accident_df['map'].value_counts()
+
+# map 데이터 시각화
+plt.figure(figsize=(20,10))
+plt.bar(map.index, map, color='r', alpha=0.7)
+plt.title('지역별 사망교통사고의 수',fontsize=20)
+plt.xlabel("지역별",fontsize=15)
+plt.ylabel("사망교통사고 건 수",fontsize=15)
+plt.show()
+
+#다섯 번째 한번의 사망교통사고로 인한 사망자에 대한 데이터를 추출하고 시각화 하기
 
 #데이터를 그룹화하기
 death_data = accident_df.groupby(['death']).count()
@@ -112,4 +133,48 @@ plt.title('한번의 사망교통사고로 인한 사망자의 수',fontsize=20)
 plt.xlabel("사망자 수",fontsize=15)
 plt.ylabel("사망교통사고 건 수",fontsize=15)
 plt.legend(["사망자"],fontsize=15)
+plt.show()
+
+# 여섯 번째 사망교통사고로 인한 경상자 와 중상자
+
+#데이터를 그룹화하기
+jungsang_data = accident_df.groupby(['jungsang']).count()
+jungsang= jungsang_data.iloc[:,0]
+jungsang_data
+
+accident_df['jungsang'].value_counts()
+
+#데이터를 그룹화하기
+gyeongsang_data = accident_df.groupby(['gyeongsang']).count()
+gyeongsang= gyeongsang_data.iloc[:,0]
+gyeongsang_data
+
+accident_df['gyeongsang'].value_counts()
+
+accident_df.loc[1::,['jungsang', 'gyeongsang']]
+
+# gyeongsang, jungsang 데이터를 plot 그래프를 이용해 시각화
+plt.figure(figsize=(20,10))
+plt.plot(gyeongsang.index, gyeongsang, color='b', alpha=0.5, marker='D', markersize=10, linestyle='dashed')
+plt.plot(jungsang.index, jungsang, color='r', alpha=0.8, marker='*',markersize=10, linestyle='dashed') 
+plt.title('한번의 사망교통사고로 인한 경상자와 중상자',fontsize=20)
+plt.xlabel("부상자 수",fontsize=15)
+plt.ylabel("사망교통사고 건 수",fontsize=15)
+plt.legend(['경상자','중상자'],fontsize=15)
+plt.show()
+
+#일곱 번째 사망교통사고의 유형
+
+#데이터 그룹화
+menu_data =accident_df.groupby(['menu']).count()
+menu=menu_data.iloc[:,0]
+menu_data
+
+accident_df['menu'].value_counts()
+
+# menu 데이터를 그래프를 pie 그래프로 시각화
+plt.figure(figsize=(10,10))
+plt.title('사망교통사고 유형' , fontsize=20)
+plt.ylabel('종류' , fontsize=15)
+accident_df['menu'].value_counts().plot.pie(autopct = '%.2f%%' , colors = ['red', 'green','blue'] ,  textprops = {'fontsize' : 12 , 'weight' : 'bold'})
 plt.show()
