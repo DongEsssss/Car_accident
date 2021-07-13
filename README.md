@@ -9,3 +9,5 @@ DatacheckAndMatplotlib.py는 추출한 데이터를 통해 데이터가 잘 나�
 
 car_accident.py 현재 진행중
 2021-07-02(3번쨰)
+2021-07-12(4번쨰,5번째)
+
