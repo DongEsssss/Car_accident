@@ -7,7 +7,7 @@ car_accident.py는 데이터를 추출하는 과정을 python형식으로 만들
 DatacheckAndMatplotlib.py는 추출한 데이터를 통해 데이터가 잘 나왔는지 확인을 하고 Matplotlib이란 라이브러리를 통해 
 데이터를 시각화하였습니다.
 
-car_accident.py 현재 진행중
-2021-07-02(3번쨰)
-2021-07-12(4번쨰,5번째)
-
+DatacheckAndMatplotlib.py 진행중
+2021-07-02(3번째)
+2021-07-12(4번째, 5번째)
+2021-07-13(6번째, 7번째)
