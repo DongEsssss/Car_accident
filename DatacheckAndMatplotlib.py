@@ -178,3 +178,37 @@ plt.title('사망교통사고 유형' , fontsize=20)
 plt.ylabel('종류' , fontsize=15)
 accident_df['menu'].value_counts().plot.pie(autopct = '%.2f%%' , colors = ['red', 'green','blue'] ,  textprops = {'fontsize' : 12 , 'weight' : 'bold'})
 plt.show()
+
+#여덟 번째 사망교통사고의 종류
+
+# 데이터 그룹화
+accidenttype_data =accident_df.groupby(['accidenttype']).count()
+accidenttype=accidenttype_data.iloc[:,0]
+accidenttype_data
+
+accident_df['accidenttype'].value_counts()
+
+# accidenttype 데이터 시각화
+plt.figure(figsize=(25,10))
+plt.bar(accidenttype.index, accidenttype, color='b', alpha=0.7)
+plt.title('사망교통사고 종류',fontsize=20)
+plt.xlabel("사망교통사고의 종류",fontsize=15)
+plt.ylabel("사망교통사고 건 수",fontsize=15)
+plt.show()
+
+#아홉 번째 사망교통사고 도로 종류
+
+# 데이터그룹화
+roadtype_data =accident_df.groupby(['roadtype']).count()
+roadtype=roadtype_data.iloc[:,0]
+roadtype_data
+
+accident_df['roadtype'].value_counts()
+
+# roadtype 데이터 시각화
+plt.figure(figsize=(30,15))
+plt.barh(roadtype.index, roadtype, color='y')
+plt.title('사망교통사고 도로 종류',fontsize=20)
+plt.xlabel("사망교통사고 건 수",fontsize=15)
+plt.ylabel("사고가 일어난 도로 수",fontsize=15)
+plt.show()
